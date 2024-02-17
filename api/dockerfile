@@ -1,0 +1,13 @@
+# Use the official Golang image
+FROM golang:1.22 AS builder
+
+# Set the current working directory inside the container
+WORKDIR /app
+
+# Copy the local package files to the container's workspace
+COPY . .
+
+# Build the Go app
+RUN go build -o main .
+
+RUN chmod +x main
